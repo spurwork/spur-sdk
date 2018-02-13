@@ -1,0 +1,18 @@
+{
+    "name": "appletonlearning/spur-sdk",
+    "description": "The API client for Spur API (https://spurjobs.com)",
+    "type": "library",
+    "require": {
+        "php": "~7.1.0",
+        "guzzlehttp/guzzle": "~6.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Spur\\": "src/"
+        }
+    },
+    "license": "MIT"
+}
