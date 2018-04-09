@@ -17,7 +17,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Spur\\Vendor\\Laravel\\ServiceProvider"
+                "Spur\\Vendor\\Laravel\\Provider"
             ]
         }
     },
