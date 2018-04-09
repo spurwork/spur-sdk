@@ -14,5 +14,12 @@
             "Spur\\": "src/"
         }
     },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Spur\\Vendor\\Laravel\\ServiceProvider"
+            ]
+        }
+    },
     "license": "MIT"
 }
