@@ -1,5 +1,5 @@
 {
-    "name": "appletonlearning/spur-sdk",
+    "name": "spurjobs/spur-sdk",
     "description": "The API client for Spur API (https://spurjobs.com)",
     "type": "library",
     "require": {
