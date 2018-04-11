@@ -24,4 +24,11 @@ class SpurClient extends SpurClientBase
     {
         return $this->get("positions", $queryParams);
     }
+
+    // Punches
+
+    public function getPunches(int $shift_id)
+    {
+        return $this->get("shifts/{$shift_id}/punches");
+    }
 }
