@@ -18,6 +18,13 @@ class SpurClient extends SpurClientBase
         return $this->post('places/register', $params);
     }
 
+    // Billing
+
+    public function addPaymentMethod(int $place_id, array $params)
+    {
+        return $this->post("/places/{$place_id}/billing/payment-methods/credit", $params);
+    }
+
     // Positions
 
     public function getPositions(array $params = [])
