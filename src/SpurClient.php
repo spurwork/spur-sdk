@@ -4,6 +4,14 @@ namespace Spur;
 
 class SpurClient extends SpurClientBase
 {
+
+    // Billing
+
+    public function addPaymentMethod(int $place_id, array $params)
+    {
+        return $this->post("/places/{$place_id}/billing/payment-methods/credit", $params);
+    }
+
     // Jobs
 
     public function createJob(int $place_id, array $params)
@@ -11,18 +19,28 @@ class SpurClient extends SpurClientBase
         return $this->post("places/{$place_id}/jobs", $params);
     }
 
+    // Job Invites
+
+    public function getJobInvites(int $job_id, array $params)
+    {
+        return $this->get("jobs/{$job_id}/job-invites", $params);
+    }
+
+    public function createJobInvite(int $job_id, array $params)
+    {
+        return $this->post("jobs/{$job_id}/job-invites", $params);
+    }
+
+    public function deleteJobInvite(int $job_invite_id)
+    {
+        return $this->delete("job-invites/{$job_invite_id}");
+    }
+
     // Places
 
     public function createPlace(array $params)
     {
         return $this->post('places/register', $params);
-    }
-
-    // Billing
-
-    public function addPaymentMethod(int $place_id, array $params)
-    {
-        return $this->post("/places/{$place_id}/billing/payment-methods/credit", $params);
     }
 
     // Positions
