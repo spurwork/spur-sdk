@@ -9,7 +9,24 @@ class SpurClient extends SpurClientBase
 
     public function addPaymentMethod(int $place_id, array $params)
     {
-        return $this->post("/places/{$place_id}/billing/payment-methods/credit", $params);
+        return $this->post("places/{$place_id}/billing/payment-methods/credit", $params);
+    }
+
+    // Disputes
+
+    public function getDispute(int $dispute_id)
+    {
+        return $this->get("disputes/{$dispute_id}");
+    }
+
+    public function createDispute(int $shift_id, array $params)
+    {
+        return $this->post("shifts/{$shift_id}/disputes", $params);
+    }
+
+    public function resolveDispute(int $dispute_id)
+    {
+        return $this->post("disputes/{$dispute_id}/resolve");
     }
 
     // Jobs
