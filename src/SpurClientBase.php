@@ -83,7 +83,7 @@ abstract class SpurClientBase
         ];
 
         if ($this->timeOffset) {
-            $headers['API-FLUX-CAPACITOR'] = $this->timeOffset;
+            $headers['X-Flux-Capacitor'] = $this->timeOffset;
         }
 
         return $headers;
