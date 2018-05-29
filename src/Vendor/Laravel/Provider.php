@@ -12,7 +12,8 @@ class Provider extends ServiceProvider
         $this->app->singleton(SpurClient::class, function ($app) {
             return new SpurClient(
                 config('services.spur.url'),
-                config('services.spur.secret')
+                config('services.spur.secret'),
+                config('services.spur.time_offset')
             );
         });
     }

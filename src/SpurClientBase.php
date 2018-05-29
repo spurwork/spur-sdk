@@ -9,11 +9,13 @@ abstract class SpurClientBase
 {
     protected $baseUrl;
     protected $authToken;
+    protected $timeOffset;
 
-    public function __construct($baseUrl, $authToken)
+    public function __construct($baseUrl, $authToken, $timeOffset = null)
     {
         $this->baseUrl = $baseUrl;
         $this->authToken = $authToken;
+        $this->timeOffset = $timeOffset;
     }
 
     public function get($url, $queryParams = [])
@@ -53,6 +55,10 @@ abstract class SpurClientBase
 
     public function send($method, $url, $options)
     {
+        if ($this->timeOffset) {
+            $options['API-FLUX-CAPACITOR'] = $this->timeOffset;
+        }
+
         try {
             return json_decode($this->getClient()->request($method, $url, $options)->getBody()->getContents(), true);
         } catch (ClientException $e) {
