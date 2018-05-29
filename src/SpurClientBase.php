@@ -55,10 +55,6 @@ abstract class SpurClientBase
 
     public function send($method, $url, $options)
     {
-        if ($this->timeOffset) {
-            $options['API-FLUX-CAPACITOR'] = $this->timeOffset;
-        }
-
         try {
             return json_decode($this->getClient()->request($method, $url, $options)->getBody()->getContents(), true);
         } catch (ClientException $e) {
@@ -75,10 +71,21 @@ abstract class SpurClientBase
     {
         return new Client([
             'base_uri' => $this->baseUrl,
-            'headers' => [
-                'Accept' => 'application/json',
-                'Authorization' => 'Bearer '.$this->authToken,
-            ],
+            'headers' => $this->getHeaders(),
         ]);
+    }
+
+    protected function getHeaders()
+    {
+        $headers = [
+            'Accept' => 'application/json',
+            'Authorization' => 'Bearer '.$this->authToken,
+        ];
+
+        if ($this->timeOffset) {
+            $headers['API-FLUX-CAPACITOR'] = $this->timeOffset;
+        }
+
+        return $headers;
     }
 }
