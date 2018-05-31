@@ -74,6 +74,13 @@ class SpurClient extends SpurClientBase
         return $this->get("shifts/{$shift_id}/punches");
     }
 
+    // Ratings
+
+    public function createRating(int $worker_id, int $shift_id)
+    {
+        return $this->post("workers/{$worker_id}/rate/{$shift_id}");
+    }
+
     // Shifts
 
     public function cancelShifts(int $shift_id, array $params)
