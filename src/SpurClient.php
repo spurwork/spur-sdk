@@ -76,9 +76,9 @@ class SpurClient extends SpurClientBase
 
     // Ratings
 
-    public function createRating(int $worker_id, int $shift_id)
+    public function createRating(int $worker_id, int $shift_id, array $params)
     {
-        return $this->post("workers/{$worker_id}/rate/{$shift_id}");
+        return $this->post("workers/{$worker_id}/rate/{$shift_id}", $params);
     }
 
     // Shifts
@@ -100,7 +100,7 @@ class SpurClient extends SpurClientBase
         return $this->get("places/{$place_id}/block-worker", $params);
     }
 
-    public function getWorker(int $worker_id, array $params)
+    public function getWorker(int $worker_id, array $params = [])
     {
         return $this->get("workers/{$worker_id}", $params);
     }
