@@ -53,6 +53,13 @@ class SpurClient extends SpurClientBase
         return $this->delete("job-invites/{$job_invite_id}");
     }
 
+    // Job Requests
+
+    public function getJobRequests(int $job_id, array $params)
+    {
+        return $this->get("jobs/{$job_id}/job-requests", $params);
+    }
+
     // Places
 
     public function createPlace(array $params)
