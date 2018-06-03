@@ -81,6 +81,13 @@ class SpurClient extends SpurClientBase
         return $this->get("shifts/{$shift_id}/punches");
     }
 
+    // Ratings
+
+    public function createRating(int $worker_id, int $shift_id, array $params)
+    {
+        return $this->post("workers/{$worker_id}/rate/{$shift_id}", $params);
+    }
+
     // Shifts
 
     public function cancelShifts(int $shift_id, array $params)
@@ -94,6 +101,16 @@ class SpurClient extends SpurClientBase
     }
 
     // Workers
+
+    public function blockWorker(int $place_id, array $params)
+    {
+        return $this->get("places/{$place_id}/block-worker", $params);
+    }
+
+    public function getWorker(int $worker_id, array $params = [])
+    {
+        return $this->get("workers/{$worker_id}", $params);
+    }
 
     public function getWorkers(int $team_id, array $params)
     {

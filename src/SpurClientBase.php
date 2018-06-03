@@ -9,11 +9,13 @@ abstract class SpurClientBase
 {
     protected $baseUrl;
     protected $authToken;
+    protected $timeOffset;
 
-    public function __construct($baseUrl, $authToken)
+    public function __construct($baseUrl, $authToken, $timeOffset = null)
     {
         $this->baseUrl = $baseUrl;
         $this->authToken = $authToken;
+        $this->timeOffset = $timeOffset;
     }
 
     public function get($url, $queryParams = [])
@@ -69,10 +71,21 @@ abstract class SpurClientBase
     {
         return new Client([
             'base_uri' => $this->baseUrl,
-            'headers' => [
-                'Accept' => 'application/json',
-                'Authorization' => 'Bearer '.$this->authToken,
-            ],
+            'headers' => $this->getHeaders(),
         ]);
+    }
+
+    protected function getHeaders()
+    {
+        $headers = [
+            'Accept' => 'application/json',
+            'Authorization' => 'Bearer '.$this->authToken,
+        ];
+
+        if ($this->timeOffset) {
+            $headers['X-Flux-Capacitor'] = $this->timeOffset;
+        }
+
+        return $headers;
     }
 }
