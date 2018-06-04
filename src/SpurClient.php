@@ -121,4 +121,9 @@ class SpurClient extends SpurClientBase
     {
         return $this->get("jobs/{$team_id}/workers", $params);
     }
+
+    public function removeWorker(int $job_id, int $worker_id)
+    {
+        return $this->delete("jobs/{$job_id}/workers/{$worker_id}");
+    }
 }
