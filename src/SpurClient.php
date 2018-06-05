@@ -119,7 +119,7 @@ class SpurClient extends SpurClientBase
 
     public function blockWorker(int $place_id, array $params)
     {
-        return $this->get("places/{$place_id}/block-worker", $params);
+        return $this->put("places/{$place_id}/block-worker", $params);
     }
 
     public function getWorker(int $worker_id, array $params = [])
