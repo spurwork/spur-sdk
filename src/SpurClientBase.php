@@ -63,6 +63,11 @@ abstract class SpurClientBase
                 throw new SpurValidationException($data['message'], $data['errors']);
             }
 
+            if ($e->getResponse()->getStatusCode() >= 400 && $e->getResponse()->getStatusCode() <= 599) {
+                $data = json_decode($e->getResponse()->getBody(), true);
+                throw new SpurApiException($data['message'], $e->getCode());
+            }
+
             throw $e;
         }
     }
