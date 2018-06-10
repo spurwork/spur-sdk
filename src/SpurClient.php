@@ -12,6 +12,18 @@ class SpurClient extends SpurClientBase
         return $this->post("places/{$place_id}/billing/payment-methods/credit", $params);
     }
 
+    // Credentials
+
+    public function getWorkerCredentials(int $worker_id, array $params = [])
+    {
+        return $this->get("workers/{$worker_id}/credentials", $params);
+    }
+
+    public function getWorkerCredential(int $worker_credential_id)
+    {
+        return $this->get("user-credentials/{$worker_credential_id}");
+    }
+
     // Disputes
 
     public function getDispute(int $dispute_id)
@@ -130,11 +142,6 @@ class SpurClient extends SpurClientBase
     public function getWorker(int $worker_id, array $params = [])
     {
         return $this->get("workers/{$worker_id}", $params);
-    }
-
-    public function getWorkerCredentials(int $worker_id, array $params = [])
-    {
-        return $this->get("workers/{$worker_id}/credentials", $params);
     }
 
     public function getWorkers(int $team_id, array $params)
