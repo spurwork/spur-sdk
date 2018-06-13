@@ -109,6 +109,11 @@ class SpurClient extends SpurClientBase
         return $this->post('places/register', $params);
     }
 
+    public function updatePlace(int $place_id, array $params)
+    {
+        return $this->put("places/{$place_id}", $params);
+    }
+
     // Positions
 
     public function getPositions(array $params = [])
