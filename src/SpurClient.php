@@ -58,6 +58,11 @@ class SpurClient extends SpurClientBase
         return $this->post("places/{$place_id}/jobs", $params);
     }
 
+    public function getJobWorkers(int $team_id, array $params)
+    {
+        return $this->get("jobs/{$team_id}/workers", $params);
+    }
+
     // Job Invites
 
     public function getJobInvites(int $job_id, array $params)
@@ -159,9 +164,9 @@ class SpurClient extends SpurClientBase
         return $this->get("workers/{$worker_id}", $params);
     }
 
-    public function getWorkers(int $team_id, array $params)
+    public function getWorkers(array $params)
     {
-        return $this->get("jobs/{$team_id}/workers", $params);
+        return $this->get("workers", $params);
     }
 
     public function removeWorker(int $job_id, int $worker_id)
