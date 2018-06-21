@@ -63,6 +63,11 @@ class SpurClient extends SpurClientBase
         return $this->get("jobs/{$team_id}/workers", $params);
     }
 
+    public function updateJob(int $job_id, array $params)
+    {
+        return $this->put("jobs/{$job_id}", $params);
+    }
+
     // Job Invites
 
     public function getJobInvites(int $job_id, array $params)
