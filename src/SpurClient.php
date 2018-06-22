@@ -14,6 +14,16 @@ class SpurClient extends SpurClientBase
 
     // Credentials
 
+    public function createJobCredential(int $job_id, array $params = [])
+    {
+        return $this->post("jobs/{$job_id}/credentials", $params);
+    }
+
+    public function deleteJobCredential(int $job_id, int $credential_id)
+    {
+        return $this->delete("jobs/{$job_id}/credentials/{$credential_id}");
+    }
+
     public function getCredentials(array $params = [])
     {
         return $this->get("credentials", $params);
