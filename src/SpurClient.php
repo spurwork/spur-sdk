@@ -21,7 +21,7 @@ class SpurClient extends SpurClientBase
 
     public function getJobCredentials(int $job_id, array $params = [])
     {
-        return $this->get("jobs/{$job_id}/worker-credentials", $params);
+        return $this->get("jobs/{$job_id}/credentials", $params);
     }
 
     public function getWorkerCredentials(int $worker_id, array $params = [])
