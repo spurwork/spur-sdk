@@ -79,12 +79,25 @@ class SpurClient extends SpurClientBase
 
     public function getJobPhotos(int $job_id)
     {
-        return $this->post("jobs/{$job_id}/photos");
+        return $this->get("jobs/{$job_id}/photos");
     }
 
-    public function addJobPhoto(int $job_id, array $params)
+    public function addJobPhoto(int $job_id, $file, $filename, array $params = [])
     {
-        return $this->post("jobs/{$job_id}/photos", $params);
+        $multipart[] = [
+            'name' => 'file',
+            'contents' => fopen($file, 'r'),
+            'filename' => $filename,
+        ];
+
+        foreach ($params as $name => $value) {
+            $multipart[] = [
+                'name' => $name,
+                'contents' => $value,
+            ];
+        }
+
+        return $this->send('POST', "jobs/{$job_id}/photos", ['multipart' => $multipart]);
     }
 
     public function deleteJobPhoto(int $job_id, int $photo_id)
