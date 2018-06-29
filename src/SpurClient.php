@@ -78,6 +78,21 @@ class SpurClient extends SpurClientBase
         return $this->put("jobs/{$job_id}", $params);
     }
 
+    public function getJobPhotos(int $job_id)
+    {
+        return $this->post("jobs/{$job_id}/photos");
+    }
+
+    public function addJobPhoto(int $job_id, array $params)
+    {
+        return $this->post("jobs/{$job_id}/photos", $params);
+    }
+
+    public function deleteJobPhoto(int $job_id, int $photo_id)
+    {
+        return $this->delete("jobs/{$job_id}/photos/{$photo_id}");
+    }
+
     // Job Invites
 
     public function getJobInvites(int $job_id, array $params)
