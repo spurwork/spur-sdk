@@ -4,7 +4,6 @@ namespace Spur;
 
 class SpurClient extends SpurClientBase
 {
-
     // Billing
 
     public function addPaymentMethod(int $place_id, array $params)
@@ -26,7 +25,7 @@ class SpurClient extends SpurClientBase
 
     public function getCredentials(array $params = [])
     {
-        return $this->get("credentials", $params);
+        return $this->get('credentials', $params);
     }
 
     public function getJobCredentials(int $job_id, array $params = [])
@@ -153,7 +152,7 @@ class SpurClient extends SpurClientBase
 
     public function getPositions(array $params = [])
     {
-        return $this->get("positions", $params);
+        return $this->get('positions', $params);
     }
 
     // Punches
@@ -174,7 +173,7 @@ class SpurClient extends SpurClientBase
 
     public function cancelShifts(array $params)
     {
-        return $this->post("shifts/cancel", $params);
+        return $this->post('shifts/cancel', $params);
     }
 
     public function createShifts(int $team_id, array $params)
@@ -196,7 +195,7 @@ class SpurClient extends SpurClientBase
 
     public function getWorkers(array $params)
     {
-        return $this->get("workers", $params);
+        return $this->get('workers', $params);
     }
 
     public function removeWorker(int $job_id, int $worker_id)
