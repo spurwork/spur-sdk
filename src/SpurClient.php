@@ -194,6 +194,11 @@ class SpurClient extends SpurClientBase
         return $this->post("jobs/{$team_id}/shifts", $params);
     }
 
+    public function assignShifts(int $shift_id, array $params)
+    {
+        return $this->post("/shifts/{$shift_id}/assign-worker", $params);
+    }
+
     // Workers
 
     public function blockWorker(int $place_id, array $params)
