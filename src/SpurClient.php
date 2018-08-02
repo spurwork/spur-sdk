@@ -74,7 +74,7 @@ class SpurClient extends SpurClientBase
 
     public function getAvailableWorkers(int $team_id, array $params)
     {
-        return $this->get("jobs/{$team_id}/available-workers", $params);
+        return $this->post("jobs/{$team_id}/available-workers", $params);
     }
 
     public function updateJob(int $job_id, array $params)
