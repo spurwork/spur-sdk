@@ -189,6 +189,11 @@ class SpurClient extends SpurClientBase
 
     // Shifts
 
+    public function assignGig(int $gig_id, array $params)
+    {
+        return $this->post("/gigs/{$gig_id}/assign-worker", $params);
+    }
+
     public function cancelShifts(array $params)
     {
         return $this->post('shifts/cancel', $params);
@@ -199,14 +204,9 @@ class SpurClient extends SpurClientBase
         return $this->post("jobs/{$team_id}/shifts", $params);
     }
 
-    public function updateShifts(int $team_id, array $params)
+    public function reportShift(int $shift_id, array $params)
     {
-        return $this->put("jobs/{$team_id}/shifts", $params);
-    }
-
-    public function assignGig(int $gig_id, array $params)
-    {
-        return $this->post("/gigs/{$gig_id}/assign-worker", $params);
+        return $this->post("shifts/{$shift_id}/report", $params);
     }
 
     // Workers
