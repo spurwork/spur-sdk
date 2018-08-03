@@ -60,7 +60,7 @@ abstract class SpurClientBase
         } catch (ClientException $e) {
             if ($e->getResponse()->getStatusCode() === 422) {
                 $data = json_decode($e->getResponse()->getBody(), true);
-                throw new SpurValidationException($data['message'], $data['errors']);
+                throw new SpurValidationException($data['message'], array_key_exists('errors', $data) ? $data['errors'] : []);
             }
 
             if ($e->getResponse()->getStatusCode() >= 400 && $e->getResponse()->getStatusCode() <= 599) {
