@@ -194,6 +194,26 @@ class SpurClient extends SpurClientBase
         return $this->post("/gigs/{$gig_id}/assign-worker", $params);
     }
 
+    public function getAvailability(int $gig_id, array $params)
+    {
+        return $this->get("/gigs/{$gig_id}/worker-availability", $params);
+    }
+
+    public function getAvailabilityForWorker(int $gig_id, int $worker_id)
+    {
+        return $this->get("/gigs/{$gig_id}/worker-availability/{$worker_id}");
+    }
+
+    public function getDateAvailability(int $job_id, array $params)
+    {
+        return $this->post("/jobs/{$job_id}/worker-availability", $params);
+    }
+
+    public function getDateAvailabilityForWorker(int $job_id, int $worker_id, array $params)
+    {
+        return $this->post("/jobs/{$job_id}/worker-availability/{$worker_id}", $params);
+    }
+
     public function updateGig(int $gig_id, array $params)
     {
         return $this->put("gigs/{$gig_id}/shifts", $params);
