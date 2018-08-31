@@ -166,6 +166,11 @@ class SpurClient extends SpurClientBase
         return $this->put("places/{$place_id}", $params);
     }
 
+    public function deactivateLocation(int $location_id)
+    {
+        return $this->delete("locations/{$location_id}");
+    }
+
     // Positions
 
     public function getPositions(array $params = [])
