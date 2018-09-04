@@ -166,6 +166,16 @@ class SpurClient extends SpurClientBase
         return $this->put("places/{$place_id}", $params);
     }
 
+    public function createLocation(int $place_id, array $params)
+    {
+        return $this->post("places/{$place_id}/locations", $params);
+    }
+
+    public function updateLocation(int $location_id, array $params)
+    {
+        return $this->put("locations/{$location_id}", $params);
+    }
+
     public function deactivateLocation(int $location_id)
     {
         return $this->delete("locations/{$location_id}");
