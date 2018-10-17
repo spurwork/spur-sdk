@@ -249,6 +249,11 @@ class SpurClient extends SpurClientBase
         return $this->post("shifts/{$shift_id}/report", $params);
     }
 
+    public function markNoShow(int $shift_id)
+    {
+        return $this->post("shifts/{$shift_id}/no-show", []);
+    }
+
     public function updateShifts(array $params)
     {
         return $this->put("shifts", $params);
