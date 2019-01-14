@@ -127,6 +127,11 @@ class SpurClient extends SpurClientBase
         return $this->post("jobs/{$job_id}/job-invites", $params);
     }
 
+    public function createJobInvites(int $job_id, array $params)
+    {
+        return $this->put("jobs/{$job_id}/job-invites", $params);
+    }
+
     public function deleteJobInvite(int $job_invite_id)
     {
         return $this->delete("job-invites/{$job_invite_id}");
@@ -256,7 +261,7 @@ class SpurClient extends SpurClientBase
 
     public function updateShifts(array $params)
     {
-        return $this->put("shifts", $params);
+        return $this->put('shifts', $params);
     }
 
     // Workers
