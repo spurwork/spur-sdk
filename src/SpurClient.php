@@ -273,14 +273,14 @@ class SpurClient extends SpurClientBase
 
     public function updateAward(int $award_id, array $params)
     {
-        $this->put("awards/{$award_id}", $params);
+        return $this->put("awards/{$award_id}", $params);
     }
 
     public function deleteAward(int $award_id)
     {
-        $this->delete("awards/{$award_id}");
+        return $this->delete("awards/{$award_id}");
     }
-    
+
     // Workers
 
     public function getBlockedWorkers(int $place_id, array $params)
