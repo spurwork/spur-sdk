@@ -266,9 +266,9 @@ class SpurClient extends SpurClientBase
 
     // Awards
 
-    public function createAward(int $shift_id, array $params)
+    public function createAwards(array $params)
     {
-        return $this->post("shifts/{$shift_id}/awards", $params);
+        return $this->post("shift-awards", $params);
     }
 
     public function updateAward(int $award_id, array $params)
