@@ -200,6 +200,48 @@ class SpurClient extends SpurClientBase
         return $this->get("shifts/{$shift_id}/punches");
     }
 
+    // Rates
+
+    public function getRates(int $team_id, array $params)
+    {
+        return $this->get("teams/{$team_id}/rates", $params);
+    }
+
+    public function getRate(int $rate_id)
+    {
+        return $this->get("rates/{$rate_id}");
+    }
+
+    public function createRate(int $team_id, array $params)
+    {
+        return $this->post("teams/{$team_id}/rates", $params);
+    }
+
+    public function patchRate(int $rate_id, array $params)
+    {
+        return $this->patch("rates/{$rate_id}", $params);
+    }
+
+    public function deleteRate(int $rate_id)
+    {
+        return $this->delete("rates/{$rate_id}");
+    }
+
+    public function commitRate(int $rate_id)
+    {
+        return $this->put("rates/{$rate_id}/commit");
+    }
+
+    public function createRateRule(int $rate_id, array $params)
+    {
+        return $this->post("rates/{$rate_id}/rules", $params);
+    }
+
+    public function deleteRateRule(int $rate_rule_id)
+    {
+        return $this->delete("rate-rules/{$rate_rule_id}");
+    }
+
     // Ratings
 
     public function createRating(int $worker_id, int $shift_id, array $params)
