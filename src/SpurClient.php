@@ -195,9 +195,19 @@ class SpurClient extends SpurClientBase
 
     // Punches
 
+    public function createPunches(int $shift_id, array $params)
+    {
+        return $this->post("shifts/{$shift_id}/punches", $params);
+    }
+
     public function getPunches(int $shift_id)
     {
         return $this->get("shifts/{$shift_id}/punches");
+    }
+
+    public function getShiftsToPunch(int $location_id, array $params)
+    {
+        return $this->get("locations/{$location_id}/kiosk", $params);
     }
 
     // Rates
