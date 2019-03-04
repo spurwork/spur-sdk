@@ -295,7 +295,12 @@ class SpurClient extends SpurClientBase
     {
         return $this->post('shifts/cancel', $params);
     }
-
+    
+    public function cancelShiftsByDateRange(array $params)
+    {
+        return $this->post('shifts/cancel-by-date-range', $params);
+    }
+    
     public function createShifts(int $team_id, array $params)
     {
         return $this->post("jobs/{$team_id}/shifts", $params);
