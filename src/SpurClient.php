@@ -193,17 +193,17 @@ class SpurClient extends SpurClientBase
 
     public function createWeeklyPayAdjustment(int $place_id, $params)
     {
-        return $this->post("places/{$place_id}/user-payments", $params);
+        return $this->post("places/{$place_id}/worker-adjustments", $params);
     }
 
     public function updateWeeklyAdjustment(int $adjustment_id, $params)
     {
-        return $this->put("user-payments/{$adjustment_id}", $params);
+        return $this->put("worker-adjustments/{$adjustment_id}", $params);
     }
 
     public function deleteWeeklyAdjustment(int $adjustment_id)
     {
-        return $this->delete("user-payments/{$adjustment_id}");
+        return $this->delete("worker-adjustments/{$adjustment_id}");
     }
 
     // Positions
