@@ -110,6 +110,18 @@ class SpurClient extends SpurClientBase
         return $this->delete("jobs/{$job_id}/photos/{$photo_id}");
     }
 
+    // Worker Claims
+
+    public function claimWorkerForTeam(int $team_id, $params)
+    {
+        return $this->post("teams/{$team_id}/claim", $params);
+    }
+
+    public function deleteWorkerClaim(int $team_claim_id)
+    {
+        return $this->delete("team-claims/{$team_claim_id}");
+    }
+
     // Job Invites
 
     public function getJobInvites(int $job_id, array $params)
