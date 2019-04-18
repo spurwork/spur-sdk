@@ -191,6 +191,21 @@ class SpurClient extends SpurClientBase
         return $this->get('compliance-checks', $params);
     }
 
+    public function createWeeklyPayAdjustment(int $place_id, $params)
+    {
+        return $this->post("places/{$place_id}/user-payments", $params);
+    }
+
+    public function updateWeeklyAdjustment(int $adjustment_id, $params)
+    {
+        return $this->put("user-payments/{$adjustment_id}", $params);
+    }
+
+    public function deleteWeeklyAdjustment(int $adjustment_id)
+    {
+        return $this->delete("user-payments/{$adjustment_id}");
+    }
+
     // Positions
 
     public function getPositions(array $params = [])
