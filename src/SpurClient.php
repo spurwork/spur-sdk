@@ -355,6 +355,11 @@ class SpurClient extends SpurClientBase
         return $this->delete("awards/{$award_id}");
     }
 
+    public function deleteAwardsMany(array $params)
+    {
+        return $this->delete("delete-awards", $params);
+    }
+
     // Workers
 
     public function getBlockedWorkers(int $place_id, array $params)
