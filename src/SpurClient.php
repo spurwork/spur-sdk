@@ -42,6 +42,11 @@ class SpurClient extends SpurClientBase
     {
         return $this->get("user-credentials/{$worker_credential_id}");
     }
+    
+    public function getWorkerOnboardingStatus(int $user_id)
+    {
+        return $this->post('worker-signup-progress', ['user_id' => $user_id]);
+    }
 
     // Disputes
 
