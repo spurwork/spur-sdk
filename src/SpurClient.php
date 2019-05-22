@@ -42,7 +42,7 @@ class SpurClient extends SpurClientBase
     {
         return $this->get("user-credentials/{$worker_credential_id}");
     }
-    
+
     public function getWorkerOnboardingStatus(int $user_id)
     {
         return $this->post('worker-signup-progress', ['user_id' => $user_id]);
@@ -356,6 +356,11 @@ class SpurClient extends SpurClientBase
     public function updateShifts(array $params)
     {
         return $this->put('shifts', $params);
+    }
+
+    public function createShiftTip(int $shift_id, array $params)
+    {
+        return $this->post('shifts/' . $shift_id . '/tips', $params);
     }
 
     // Awards
