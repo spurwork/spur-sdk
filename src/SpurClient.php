@@ -360,7 +360,7 @@ class SpurClient extends SpurClientBase
 
     public function createShiftTip(int $shift_id, array $params)
     {
-        return $this->post('shifts/' . $shift_id . '/tips', $params);
+        return $this->post("shifts/{$shift_id}/workplace/tips", $params);
     }
 
     // Awards
