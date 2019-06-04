@@ -289,6 +289,11 @@ class SpurClient extends SpurClientBase
         return $this->delete("rate-rules/{$rate_rule_id}");
     }
 
+    public function validateRate(int $team_id, array $params)
+    {
+        return $this->post("teams/{$team_id}/rates/validate", $params);
+    }
+
     // Ratings
 
     public function createRating(int $worker_id, int $shift_id, array $params)
@@ -367,7 +372,7 @@ class SpurClient extends SpurClientBase
 
     public function createAwards(array $params)
     {
-        return $this->post("shift-awards", $params);
+        return $this->post('shift-awards', $params);
     }
 
     public function updateAward(int $award_id, array $params)
