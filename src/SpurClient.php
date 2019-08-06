@@ -48,6 +48,11 @@ class SpurClient extends SpurClientBase
         return $this->post('worker-signup-progress', ['user_id' => $user_id]);
     }
 
+    public function getWorkersStagesProgress($users)
+    {
+        return $this->post('worker-stages-progress', ['users' => $users]);
+    }
+
     // Disputes
 
     public function getDispute(int $dispute_id)
