@@ -187,7 +187,14 @@ class SpurClient extends SpurClientBase
     {
         return $this->post("job-requests/{$job_request_id}/decline", $params);
     }
-
+    
+    // Employers
+    
+    public function getEmployers()
+    {
+        return $this->get('employers');
+    }
+    
     // Places
 
     public function createPlace(array $params)
