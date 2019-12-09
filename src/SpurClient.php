@@ -356,7 +356,14 @@ class SpurClient extends SpurClientBase
     {
         return $this->put("gigs/{$gig_id}/shifts", $params);
     }
+    
+    // Shifts
 
+    public function getShift(int $shift_id)
+    {
+        return $this->get("shifts/{$shift_id}");
+    }
+    
     public function cancelShifts(array $params)
     {
         return $this->post('shifts/cancel', $params);
