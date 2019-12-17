@@ -120,6 +120,18 @@ class SpurClient extends SpurClientBase
         return $this->delete("jobs/{$job_id}/photos/{$photo_id}");
     }
 
+    // Worker Rates
+
+    public function getWorkersRates(int $worker_id)
+    {
+        // code...
+    }
+
+    public function getWorkerRates(int $worker_id)
+    {
+        // code...
+    }
+
     // Worker Claims
 
     public function claimWorkerForTeam(int $team_id, $params)
@@ -187,19 +199,19 @@ class SpurClient extends SpurClientBase
     {
         return $this->post("job-requests/{$job_request_id}/decline", $params);
     }
-    
+
     // Employers
-    
+
     public function getEmployers()
     {
         return $this->get('employers');
     }
-       
+
     public function canClaimWorker(int $employer_id, array $params)
     {
         return $this->post("employers/{$employer_id}/claim-status", $params);
     }
-    
+
     // Places
 
     public function createPlace(array $params)
@@ -248,6 +260,10 @@ class SpurClient extends SpurClientBase
     }
 
     // Positions
+    public function getPositionRate(int $spur_team_id)
+    {
+        return $this->get("teams/{$spur_team_id}/rates");
+    }
 
     public function getPositions(array $params = [])
     {
@@ -356,14 +372,14 @@ class SpurClient extends SpurClientBase
     {
         return $this->put("gigs/{$gig_id}/shifts", $params);
     }
-    
+
     // Shifts
 
     public function getShift(int $shift_id)
     {
         return $this->get("shifts/{$shift_id}");
     }
-    
+
     public function cancelShifts(array $params)
     {
         return $this->post('shifts/cancel', $params);
