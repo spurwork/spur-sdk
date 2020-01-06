@@ -264,6 +264,11 @@ class SpurClient extends SpurClientBase
     {
         return $this->get("teams/{$spur_team_id}/rates");
     }
+    
+    public function getPositionsRate(array $teams)
+    {
+        return $this->post('teams/rates', $teams);
+    }
 
     public function getPositions(array $params = [])
     {
