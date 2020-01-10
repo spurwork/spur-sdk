@@ -70,13 +70,21 @@ class SpurClient extends SpurClientBase
         return $this->post("disputes/{$dispute_id}/resolve");
     }
 
-    // Jobs
+    // Teams
+    
+    public function createTeam(int $place_id, array $params)
+    {
+        return $this->post("places/{$place_id}/teams", $params);
+    }
 
+    // Jobs
+    
+    // @deprecated //
     public function createJob(int $place_id, array $params)
     {
         return $this->post("places/{$place_id}/jobs", $params);
     }
-
+    
     public function getJobWorkers(int $team_id, array $params)
     {
         return $this->get("jobs/{$team_id}/workers", $params);
@@ -260,6 +268,7 @@ class SpurClient extends SpurClientBase
     }
 
     // Positions
+    
     public function getPositionRate(int $spur_team_id)
     {
         return $this->get("teams/{$spur_team_id}/rates");
