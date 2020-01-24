@@ -220,6 +220,28 @@ class SpurClient extends SpurClientBase
         return $this->post("employers/{$employer_id}/claim-status", $params);
     }
 
+    // Payroll
+
+    public function getPayrolls(int $place_id)
+    {
+        return $this->get("api/places/{$place_id}/payroll");
+    }
+
+    public function getPayroll(int $place_id, int $payroll_id)
+    {
+        return $this->get("api/places/{$place_id}/payroll/{$payroll_id}");
+    }
+
+    public function getPayrollLineItems(int $place_id, int $payroll_id, array $params)
+    {
+        return $this->get("api/places/{$place_id}/payroll/{$payroll_id}/line-items", $params);
+    }
+
+    public function getPayrollSummaryItems(int $place_id, int $payroll_id, array $params)
+    {
+        return $this->get("api/places/{$place_id}/payroll/{$payroll_id}/summary-items", $params);
+    }
+
     // Places
 
     public function createPlace(array $params)
