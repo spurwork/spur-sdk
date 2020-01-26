@@ -232,12 +232,12 @@ class SpurClient extends SpurClientBase
         return $this->get("api/places/{$place_id}/payroll/{$payroll_id}");
     }
 
-    public function getPayrollLineItems(int $place_id, int $payroll_id, array $params)
+    public function getPayrollLineItems(int $place_id, int $payroll_id, array $params = [])
     {
         return $this->get("api/places/{$place_id}/payroll/{$payroll_id}/line-items", $params);
     }
 
-    public function getPayrollSummaryItems(int $place_id, int $payroll_id, array $params)
+    public function getPayrollSummaryItems(int $place_id, int $payroll_id, array $params= [])
     {
         return $this->get("api/places/{$place_id}/payroll/{$payroll_id}/summary-items", $params);
     }
