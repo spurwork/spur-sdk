@@ -4,6 +4,13 @@ namespace Spur;
 
 class SpurClient extends SpurClientBase
 {
+    // Auth
+
+    public function registerUserWithApi(array $params)
+    {
+        return $this->post('auth/register', $params);
+    }
+
     // Billing
 
     public function addPaymentMethod(int $place_id, array $params)
