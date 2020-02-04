@@ -86,7 +86,7 @@ class SpurClient extends SpurClientBase
     
     public function updateTeam(int $team_id, array $params)
     {
-        return $this->put("team/{$team_id}", $params);
+        return $this->put("teams/{$team_id}", $params);
     }    
     
     // Jobs
