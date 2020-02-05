@@ -83,7 +83,12 @@ class SpurClient extends SpurClientBase
     {
         return $this->post("places/{$place_id}/teams", $params);
     }
-
+    
+    public function updateTeam(int $team_id, array $params)
+    {
+        return $this->put("teams/{$team_id}", $params);
+    }    
+    
     // Jobs
     
     // @deprecated //
