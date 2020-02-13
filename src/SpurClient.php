@@ -4,6 +4,18 @@ namespace Spur;
 
 class SpurClient extends SpurClientBase
 {
+    // Additonal Wadges
+
+    public function createWageAdjustment($place_id, array $params)
+    {
+        return $this->post("places/{$place_id}/worker-adjustments", $params);
+    }
+
+    public function deleteWageAdjustment($place_id, array $params)
+    {
+        return $this->post("places/{$place_id}/worker-adjustments", $params);
+    }
+
     // Auth
 
     public function registerUserWithApi(array $params)
