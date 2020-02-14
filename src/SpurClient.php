@@ -11,9 +11,9 @@ class SpurClient extends SpurClientBase
         return $this->post("places/{$place_id}/worker-adjustments", $params);
     }
 
-    public function deleteWageAdjustment($place_id, array $params)
+    public function deleteWageAdjustment($adjustment_id)
     {
-        return $this->post("places/{$place_id}/worker-adjustments", $params);
+        return $this->delete("worker-adjustments/${adjustment_id}");
     }
 
     // Auth
