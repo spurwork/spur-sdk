@@ -99,7 +99,7 @@ class SpurClient extends SpurClientBase
     public function updateTeam(int $team_id, array $params)
     {
         return $this->put("teams/{$team_id}", $params);
-    }    
+    }
     
     // Jobs
     
@@ -392,6 +392,33 @@ class SpurClient extends SpurClientBase
     public function validateRate(int $team_id, array $params)
     {
         return $this->post("teams/{$team_id}/rates/validate", $params);
+    }
+
+    // Rate Modifiers
+
+    public function getTeamRateModifiers(int $team_id)
+    {
+        return $this->get("teams/{$team_id}/rate-modifiers");
+    }
+
+    public function createTeamRateModifier(int $team_id, array $params)
+    {
+        return $this->post("teams/{$team_id}/rate-modifiers", $params);
+    }
+
+    public function getRateModifier(int $rate_modifier)
+    {
+        return $this->get("rate-modifiers/{$rate_modifier}");
+    }
+
+    public function patchRateModifier(int $rate_modifier, array $params)
+    {
+        return $this->patch("rate-modifiers/{$rate_modifier}", $params);
+    }
+
+    public function deleteRateModifier(int $rate_modifier_id)
+    {
+        return $this->delete("rate-modifiers/{$rate_modifier_id}");
     }
 
     // Ratings
