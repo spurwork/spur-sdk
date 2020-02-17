@@ -4,6 +4,23 @@ namespace Spur;
 
 class SpurClient extends SpurClientBase
 {
+    // API
+
+    public function registerAccountManagerWithApi(int $place_id, array $params)
+    {
+        return $this->post('api/places/'.$place_id.'/managers/register', $params);
+    }
+
+    public function registerEmployerManagerWithApi(int $employer_id, array $params)
+    {
+        return $this->post('api/employers/'.$employer_id.'/managers/register', $params);
+    }
+
+    public function registerLocationManagerWithApi(int $location_id, array $params)
+    {
+        return $this->post('api/locations/'.$location_id.'/managers/register', $params);
+    }
+
     // Auth
 
     public function registerUserWithApi(array $params)
