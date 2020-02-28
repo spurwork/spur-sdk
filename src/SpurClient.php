@@ -563,33 +563,33 @@ class SpurClient extends SpurClientBase
 
     // Employees
 
-    public function getLimitedEmployeesFromEmployer(int $employer_id, $params)
+    public function getLimitedEmployeesFromEmployer(int $employer_id, array $params = [])
     {
-        return $this->get("employers/{$employer_id}/limited_employees", $params);
+        return $this->get("api/employers/{$employer_id}/limited_employees", $params);
     }
 
-    public function getLimitedEmployeeFromEmployer(int $employer_id, int $employee_id, $params)
+    public function getLimitedEmployeeFromEmployer(int $employer_id, int $employee_id)
     {
-        return $this->get("employers/{$employer_id}/limited_employees/{$employee_id}", $params);
+        return $this->get("api/employers/{$employer_id}/limited_employees/{$employee_id}");
     }
 
-    public function getLimitedEmployeesFromPlace(int $place_id, $params)
+    public function getLimitedEmployeesFromPlace(int $place_id, array $params = [])
     {
-        return $this->get("places/{$place_id}/limited_employees", $params);
+        return $this->get("api/places/{$place_id}/limited_employees", $params);
     }
 
     public function getLimitedEmployeeFromPlace(int $place_id, int $employee_id)
     {
-        return $this->get("places/{$place_id}/limited_employees/{$employee_id}");
+        return $this->get("api/places/{$place_id}/limited_employees/{$employee_id}");
     }
 
-    public function getLimitedEmployeesFromLocation(int $location_id, $params)
+    public function getLimitedEmployeesFromLocation(int $location_id, array $params = [])
     {
-        return $this->get("locations/{$location_id}/limited_employees", $params);
+        return $this->get("api/locations/{$location_id}/limited_employees", $params);
     }
 
     public function getLimitedEmployeeFromLocation(int $location_id, int $employee_id)
     {
-        return $this->get("locations/{$location_id}/limited_employees/{$employee_id}");
+        return $this->get("api/locations/{$location_id}/limited_employees/{$employee_id}");
     }
 }
