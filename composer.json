@@ -3,7 +3,7 @@
     "description": "The API client for Spur API (https://spurjobs.com)",
     "type": "library",
     "require": {
-        "php": "^7.1.0",
+        "php": "^7.2.0",
         "guzzlehttp/guzzle": "~6.0"
     },
     "require-dev": {
