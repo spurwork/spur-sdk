@@ -563,17 +563,17 @@ class SpurClient extends SpurClientBase
 
     // Employees
 
-    public function getLimitedEmployeesFromEmployer(int $employer_id, $params)
+    public function getLimitedEmployeesFromEmployer(int $employer_id, array $params = [])
     {
         return $this->get("api/employers/{$employer_id}/limited_employees", $params);
     }
 
-    public function getLimitedEmployeeFromEmployer(int $employer_id, int $employee_id, $params)
+    public function getLimitedEmployeeFromEmployer(int $employer_id, int $employee_id)
     {
-        return $this->get("api/employers/{$employer_id}/limited_employees/{$employee_id}", $params);
+        return $this->get("api/employers/{$employer_id}/limited_employees/{$employee_id}");
     }
 
-    public function getLimitedEmployeesFromPlace(int $place_id, $params)
+    public function getLimitedEmployeesFromPlace(int $place_id, array $params = [])
     {
         return $this->get("api/places/{$place_id}/limited_employees", $params);
     }
@@ -583,7 +583,7 @@ class SpurClient extends SpurClientBase
         return $this->get("api/places/{$place_id}/limited_employees/{$employee_id}");
     }
 
-    public function getLimitedEmployeesFromLocation(int $location_id, $params)
+    public function getLimitedEmployeesFromLocation(int $location_id, array $params = [])
     {
         return $this->get("lapi/ocations/{$location_id}/limited_employees", $params);
     }
