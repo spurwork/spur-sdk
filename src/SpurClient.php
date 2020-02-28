@@ -585,7 +585,7 @@ class SpurClient extends SpurClientBase
 
     public function getLimitedEmployeesFromLocation(int $location_id, array $params = [])
     {
-        return $this->get("api/ocations/{$location_id}/limited_employees", $params);
+        return $this->get("api/locations/{$location_id}/limited_employees", $params);
     }
 
     public function getLimitedEmployeeFromLocation(int $location_id, int $employee_id)
