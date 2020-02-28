@@ -90,25 +90,25 @@ class SpurClient extends SpurClientBase
     }
 
     // Teams
-    
+
     public function createTeam(int $place_id, array $params)
     {
         return $this->post("places/{$place_id}/teams", $params);
     }
-    
+
     public function updateTeam(int $team_id, array $params)
     {
         return $this->put("teams/{$team_id}", $params);
     }
-    
+
     // Jobs
-    
+
     // @deprecated //
     public function createJob(int $place_id, array $params)
     {
         return $this->post("places/{$place_id}/jobs", $params);
     }
-    
+
     public function getJobWorkers(int $team_id, array $params)
     {
         return $this->get("jobs/{$team_id}/workers", $params);
@@ -261,7 +261,7 @@ class SpurClient extends SpurClientBase
         return $this->get("api/places/{$place_id}/payroll/{$payroll_id}/line-items", $params);
     }
 
-    public function getPayrollSummaryItems(int $place_id, int $payroll_id, array $params= [])
+    public function getPayrollSummaryItems(int $place_id, int $payroll_id, array $params = [])
     {
         return $this->get("api/places/{$place_id}/payroll/{$payroll_id}/summary-items", $params);
     }
@@ -314,12 +314,12 @@ class SpurClient extends SpurClientBase
     }
 
     // Positions
-    
+
     public function getPositionRate(int $spur_team_id)
     {
         return $this->get("teams/{$spur_team_id}/rates");
     }
-    
+
     public function getPositionsRate(array $teams)
     {
         return $this->post('teams/rates', $teams);
@@ -559,5 +559,37 @@ class SpurClient extends SpurClientBase
     public function removeWorker(int $job_id, int $worker_id)
     {
         return $this->delete("jobs/{$job_id}/workers/{$worker_id}");
+    }
+
+    // Employees
+
+    public function getLimitedEmployeesFromEmployer(int $employer_id, $params)
+    {
+        return $this->get("employers/{$employer_id}/limited_employees", $params);
+    }
+
+    public function getLimitedEmployeeFromEmployer(int $employer_id, int $employee_id, $params)
+    {
+        return $this->get("employers/{$employer_id}/limited_employees/{$employee_id}", $params);
+    }
+
+    public function getLimitedEmployeesFromPlace(int $place_id, $params)
+    {
+        return $this->get("places/{$place_id}/limited_employees", $params);
+    }
+
+    public function getLimitedEmployeeFromPlace(int $place_id, int $employee_id)
+    {
+        return $this->get("places/{$place_id}/limited_employees/{$employee_id}");
+    }
+
+    public function getLimitedEmployeesFromLocation(int $location_id, $params)
+    {
+        return $this->get("locations/{$location_id}/limited_employees", $params);
+    }
+
+    public function getLimitedEmployeeFromLocation(int $location_id, int $employee_id)
+    {
+        return $this->get("locations/{$location_id}/limited_employees/{$employee_id}");
     }
 }
