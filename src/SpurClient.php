@@ -239,6 +239,11 @@ class SpurClient extends SpurClientBase
         return $this->get('employers');
     }
 
+    public function getEmployerPlaces(int $employer_id)
+    {
+        return $this->get('api/employers/places', ["employer_id" => $employer_id]);
+    }
+
     public function canClaimWorker(int $employer_id, array $params)
     {
         return $this->post("employers/{$employer_id}/claim-status", $params);
