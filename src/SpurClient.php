@@ -434,7 +434,17 @@ class SpurClient extends SpurClientBase
     }
 
     // Shifts
+    
+    public function lockShift(int $shift_id, array $params)
+    {
+        return $this->patch("/shifts/{$shift_id}/lock", $params);
+    }
 
+    public function unlockShift(int $shift_id)
+    {
+        return $this->patch("shifts/{$shift_id}/unlock");
+    }
+    
     public function assignGig(int $gig_id, array $params)
     {
         return $this->post("/gigs/{$gig_id}/assign-worker", $params);
