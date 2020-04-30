@@ -607,4 +607,9 @@ class SpurClient extends SpurClientBase
     {
         return $this->get("api/locations/{$location_id}/limited_employees/{$employee_id}");
     }
+    
+    public function importTaskComplete($import_task)
+    {
+        return $this->get("batch-import/{$import_task}/complete");
+    }
 }
