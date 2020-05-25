@@ -610,8 +610,8 @@ class SpurClient extends SpurClientBase
 
     // Importers
 
-    public function viewImportTask(int $import_task_id)
+    public function viewImportTask(string $import_task_id)
     {
-        return $this->get("api/batch-import/{$import_task_id}");
+        return $this->get("batch-import/{$import_task_id}");
     }
 }
