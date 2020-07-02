@@ -249,6 +249,63 @@ class SpurClient extends SpurClientBase
         return $this->post("employers/{$employer_id}/claim-status", $params);
     }
 
+    // Paid Leave
+
+    public function getPaidLeavePlans(int $employer_id, array $params)
+    {
+        return $this->get("employers/{$employer_id}/leave-plans", $params);
+    }
+
+    public function getPaidLeavePlan(int $employer_id, int $benefit_leave_plan_id)
+    {
+        return $this->get("employers/{$employer_id}/leave-plans/{$benefit_leave_plan_id}");
+    }
+
+    public function getPaidLeaveTenureRules(int $employer_id, int $benefit_leave_plan_id, array $params)
+    {
+        return $this->get("employers/{$employer_id}/leave-plans/{$benefit_leave_plan_id}/tenure-rules", $params);
+    }
+
+    public function getPaidLeaveTenureRule(int $employer_id, int $benefit_leave_plan_id, int $benefit_leave_tenure_rule_id)
+    {
+        return $this->get("employers/{$employer_id}/leave-plans/{$benefit_leave_plan_id}/tenure-rules/{$benefit_leave_tenure_rule_id}");
+    }
+
+    public function getPaidLeaveEnrollments(int $employer_id, int $benefit_leave_plan_id, array $params)
+    {
+        return $this->get("employers/{$employer_id}/leave-plans/{$benefit_leave_plan_id}/enrollments", $params);
+    }
+
+    public function getPaidLeaveEnrollment(int $employer_id, int $benefit_leave_plan_id, int $benefit_leave_enrollment_id)
+    {
+        return $this->get("employers/{$employer_id}/leave-plans/{$benefit_leave_plan_id}/enrollments/{$benefit_leave_enrollment_id}");
+    }
+
+    public function createPaidLeaveEnrollment(int $employer_id, int $benefit_leave_plan_id, array $params)
+    {
+        return $this->post("employers/{$employer_id}/leave-plans/{$benefit_leave_plan_id}/enrollments", $params);
+    }
+
+    public function bulkCreatePaidLeaveEnrollment(int $employer_id, int $benefit_leave_plan_id, array $params)
+    {
+        return $this->post("employers/{$employer_id}/leave-plans/{$benefit_leave_plan_id}/enrollments", $params);
+    }
+
+    public function getPaidLeaveEnrollmentLedgerItems(int $employer_id, int $benefit_leave_plan_id, int $benefit_leave_enrollment_id, array $params)
+    {
+        return $this->get("employers/{$employer_id}/leave-plans/{$benefit_leave_plan_id}/enrollments/{$benefit_leave_enrollment_id}/ledger-items", $params);
+    }
+
+    public function createPaidLeaveEnrollmentLedgerItems(int $employer_id, int $benefit_leave_plan_id, int $benefit_leave_enrollment_id, array $params)
+    {
+        return $this->post("employers/{$employer_id}/leave-plans/{$benefit_leave_plan_id}/enrollments/{$benefit_leave_enrollment_id}/ledger-items", $params);
+    }
+
+    public function getPaidLeaveEnrollmentLedgerItem(int $employer_id, int $benefit_leave_plan_id, int $benefit_leave_enrollment_id, int $benefit_leave_ledger_item_id)
+    {
+        return $this->get("employers/{$employer_id}/leave-plans/{$benefit_leave_plan_id}/enrollments/{$benefit_leave_enrollment_id}/ledger-items/{$benefit_leave_ledger_item_id}");
+    }
+
     // Payroll
 
     public function getPayrolls(int $place_id)
@@ -574,6 +631,33 @@ class SpurClient extends SpurClientBase
     public function removeWorker(int $job_id, int $worker_id)
     {
         return $this->delete("jobs/{$job_id}/workers/{$worker_id}");
+    }
+
+    // Work Entries
+
+    public function getWorkEntries(int $employer_id, array $params)
+    {
+        return $this->get("employers/{$employer_id}/workentries", $params);
+    }
+
+    public function createWorkEntry(int $employer_id, array $params)
+    {
+        return $this->post("employers/{$employer_id}/workentries", $params);
+    }
+
+    public function getWorkEntry(int $employer_id, int $work_entry_id)
+    {
+        return $this->get("employers/{$employer_id}/workentries/{$work_entry_id}");
+    }
+
+    public function approveWorkEntry(int $employer_id, int $work_entry_id)
+    {
+        return $this->post("employers/{$employer_id}/workentries/{$work_entry_id}/review");
+    }
+
+    public function rejectWorkEntry(int $employer_id, int $work_entry_id)
+    {
+        return $this->delete("employers/{$employer_id}/workentries/{$work_entry_id}/review");
     }
 
     // Employees
