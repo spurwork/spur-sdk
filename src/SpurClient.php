@@ -637,27 +637,27 @@ class SpurClient extends SpurClientBase
 
     public function getWorkEntries(int $employer_id, array $params)
     {
-        return $this->get("employers/{$employer_id}/workentries", $params);
+        return $this->get("api/employers/{$employer_id}/workentries", $params);
     }
 
     public function createWorkEntry(int $employer_id, array $params)
     {
-        return $this->post("employers/{$employer_id}/workentries", $params);
+        return $this->post("api/employers/{$employer_id}/workentries", $params);
     }
 
     public function getWorkEntry(int $employer_id, int $work_entry_id)
     {
-        return $this->get("employers/{$employer_id}/workentries/{$work_entry_id}");
+        return $this->get("api/employers/{$employer_id}/workentries/{$work_entry_id}");
     }
 
     public function approveWorkEntry(int $employer_id, int $work_entry_id)
     {
-        return $this->post("employers/{$employer_id}/workentries/{$work_entry_id}/review");
+        return $this->post("api/employers/{$employer_id}/workentries/{$work_entry_id}/review");
     }
 
     public function rejectWorkEntry(int $employer_id, int $work_entry_id)
     {
-        return $this->delete("employers/{$employer_id}/workentries/{$work_entry_id}/review");
+        return $this->delete("api/employers/{$employer_id}/workentries/{$work_entry_id}/review");
     }
 
     // Employees
