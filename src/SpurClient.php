@@ -273,6 +273,11 @@ class SpurClient extends SpurClientBase
 
     // Places
 
+    public function getPlaces(int $employer_id, array $params = [])
+    {
+        return $this->get("employers/{$employer_id}/places", $params);
+    }
+
     public function createPlace(array $params)
     {
         return $this->post('places/register', $params);
@@ -281,6 +286,11 @@ class SpurClient extends SpurClientBase
     public function updatePlace(int $place_id, array $params)
     {
         return $this->put("places/{$place_id}", $params);
+    }
+
+    public function getLocations(int $place_id, array $params = [])
+    {
+        return $this->get("places/{$place_id}/locations", $params);
     }
 
     public function createLocation(int $place_id, array $params)
