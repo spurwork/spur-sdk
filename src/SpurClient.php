@@ -91,6 +91,11 @@ class SpurClient extends SpurClientBase
 
     // Teams
 
+    public function getTeams(int $place_id, array $params = [])
+    {
+        return $this->get("places/{$place_id}/teams", $params);
+    }
+
     public function createTeam(int $place_id, array $params)
     {
         return $this->post("places/{$place_id}/teams", $params);
