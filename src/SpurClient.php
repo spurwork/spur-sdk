@@ -121,7 +121,7 @@ class SpurClient extends SpurClientBase
 
     public function getAvailableWorkers(int $team_id, array $params)
     {
-        return $this->post("jobs/{$team_id}/available-workers", $params);
+        return $this->post("teams/{$team_id}/available-workers", $params);
     }
 
     public function updateJob(int $job_id, array $params)
@@ -477,12 +477,12 @@ class SpurClient extends SpurClientBase
 
     public function getDateAvailability(int $job_id, array $params)
     {
-        return $this->post("/jobs/{$job_id}/worker-availability", $params);
+        return $this->post("/teams/{$job_id}/worker-availability", $params);
     }
 
     public function getDateAvailabilityForWorker(int $job_id, int $worker_id, array $params)
     {
-        return $this->post("/jobs/{$job_id}/worker-availability/{$worker_id}", $params);
+        return $this->post("/teams/{$job_id}/worker-availability/{$worker_id}", $params);
     }
 
     public function updateGig(int $gig_id, array $params)
