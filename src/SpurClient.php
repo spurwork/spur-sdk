@@ -116,7 +116,7 @@ class SpurClient extends SpurClientBase
 
     public function getJobWorkers(int $team_id, array $params)
     {
-        return $this->get("jobs/{$team_id}/workers", $params);
+        return $this->get("teams/{$team_id}/workers", $params);
     }
 
     public function getAvailableWorkers(int $team_id, array $params)
@@ -124,17 +124,12 @@ class SpurClient extends SpurClientBase
         return $this->post("teams/{$team_id}/available-workers", $params);
     }
 
-    public function updateJob(int $job_id, array $params)
+    public function getJobPhotos(int $team_id)
     {
-        return $this->put("jobs/{$job_id}", $params);
+        return $this->get("teams/{$team_id}/photos");
     }
 
-    public function getJobPhotos(int $job_id)
-    {
-        return $this->get("jobs/{$job_id}/photos");
-    }
-
-    public function addJobPhoto(int $job_id, $file, $filename, array $params = [])
+    public function addJobPhoto(int $team_id, $file, $filename, array $params = [])
     {
         $multipart[] = [
             'name' => 'file',
@@ -149,12 +144,12 @@ class SpurClient extends SpurClientBase
             ];
         }
 
-        return $this->send('POST', "jobs/{$job_id}/photos", ['multipart' => $multipart]);
+        return $this->send('POST', "teams/{$team_id}/photos", ['multipart' => $multipart]);
     }
 
-    public function deleteJobPhoto(int $job_id, int $photo_id)
+    public function deleteJobPhoto(int $team_id, int $photo_id)
     {
-        return $this->delete("jobs/{$job_id}/photos/{$photo_id}");
+        return $this->delete("teams/{$team_id}/photos/{$photo_id}");
     }
 
     // Worker Rates
@@ -189,7 +184,7 @@ class SpurClient extends SpurClientBase
     }
 
     // Job Invites
-
+    // Cannot find this endpoint on the API but it is used on web leaving it here for now.
     public function getJobInvites(int $job_id, array $params)
     {
         return $this->get("jobs/{$job_id}/job-invites", $params);
@@ -217,24 +212,9 @@ class SpurClient extends SpurClientBase
 
     // Job Requests
 
-    public function getJobRequests(int $job_id, array $params = [])
-    {
-        return $this->get("jobs/{$job_id}/job-requests", $params);
-    }
-
     public function getWorkerJobRequests(int $worker_id, array $params = [])
     {
         return $this->get("workers/{$worker_id}/job-requests", $params);
-    }
-
-    public function approveJobRequest(int $job_request_id)
-    {
-        return $this->post("job-requests/{$job_request_id}/approve");
-    }
-
-    public function declineJobRequest(int $job_request_id, array $params = [])
-    {
-        return $this->post("job-requests/{$job_request_id}/decline", $params);
     }
 
     // Employers
@@ -586,9 +566,9 @@ class SpurClient extends SpurClientBase
         return $this->get('workers', $params);
     }
 
-    public function removeWorker(int $job_id, int $worker_id)
+    public function removeWorker(int $team_id, int $worker_id)
     {
-        return $this->delete("jobs/{$job_id}/workers/{$worker_id}");
+        return $this->delete("teams/{$team_id}/workers/{$worker_id}");
     }
 
     // Employees
