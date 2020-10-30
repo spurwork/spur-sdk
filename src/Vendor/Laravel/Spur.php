@@ -2,8 +2,8 @@
 
 namespace Spur\Vendor\Laravel;
 
-use Spur\SpurClient;
 use Illuminate\Support\Facades\Facade;
+use Spur\SpurClient;
 
 class Spur extends Facade
 {
