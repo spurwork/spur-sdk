@@ -517,23 +517,6 @@ class SpurClient extends SpurClientBase
         return $this->post('shifts/workplace/bulk-tips', $params);
     }
 
-    // Awards
-
-    public function createAwards(array $params)
-    {
-        return $this->post('shift-awards', $params);
-    }
-
-    public function updateAward(int $award_id, array $params)
-    {
-        return $this->put("awards/{$award_id}", $params);
-    }
-
-    public function deleteAward(int $award_id)
-    {
-        return $this->delete("awards/{$award_id}");
-    }
-
     // Workers
 
     public function getBlockedWorkers(int $place_id, array $params)
