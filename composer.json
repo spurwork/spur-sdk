@@ -1,14 +1,14 @@
 {
-  "name": "spurjobs/spur-sdk",
-  "description": "The API client for Spur API (https://spurjobs.com)",
+  "name": "spurwork/spur-sdk",
+  "description": "The API client for Spur API (https://api.spurwork.com)",
   "type": "library",
   "require": {
     "php": "^7.2.0",
-    "guzzlehttp/guzzle": "~6.0",
+    "guzzlehttp/guzzle": "^6.0 | ^7.0",
     "illuminate/support": "^6.0 | ^7.0 | ^8.0"
   },
   "require-dev": {
-    "phpunit/phpunit": "^7.0"
+    "phpunit/phpunit": "^8.0 | ^9.0"
   },
   "autoload": {
     "psr-4": {
