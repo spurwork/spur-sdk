@@ -23,6 +23,11 @@ class SpurClient extends SpurClientBase
         return $this->post('auth/register', $params);
     }
 
+    public function registerSuperUserWithApi(array $params)
+    {
+        return $this->post('auth/register-super', $params);
+    }
+
     // Billing
 
     public function addPaymentMethod(int $place_id, array $params)
