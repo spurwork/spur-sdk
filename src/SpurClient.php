@@ -597,4 +597,10 @@ class SpurClient extends SpurClientBase
     {
         return $this->get("batch-import/{$import_task_id}");
     }
+
+    // Invoices
+
+    public function updateIntacctTotal(int $invoice_id, array $params) {
+        return $this->put("invoices/{$invoice_id}/intacct_total", $params);
+    }
 }
