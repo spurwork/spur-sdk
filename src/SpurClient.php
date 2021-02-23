@@ -23,6 +23,11 @@ class SpurClient extends SpurClientBase
         return $this->post('auth/register', $params);
     }
 
+    public function loginUserToApi($user_id)
+    {
+        return $this->post('auth/login', ['user_id' => $user_id]);
+    }
+
     public function registerSuperUserWithApi(array $params)
     {
         return $this->post('auth/register-super', $params);
@@ -600,7 +605,8 @@ class SpurClient extends SpurClientBase
 
     // Invoices
 
-    public function updateIntacctTotal(int $invoice_id, array $params) {
+    public function updateIntacctTotal(int $invoice_id, array $params)
+    {
         return $this->put("invoices/{$invoice_id}/intacct_total", $params);
     }
 }
