@@ -564,6 +564,11 @@ class SpurClient extends SpurClientBase
         return $this->delete("teams/{$team_id}/workers/{$worker_id}");
     }
 
+    public function updateCodes(int $worker_id, array $params)
+    {
+        return $this->put("workers/{$worker_id}/codes", $params);
+    }
+
     // Employees
 
     public function getLimitedEmployeesFromEmployer(int $employer_id, array $params = [])
