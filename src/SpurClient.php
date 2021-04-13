@@ -323,6 +323,11 @@ class SpurClient extends SpurClientBase
         return $this->delete("worker-adjustments/{$adjustment_id}");
     }
 
+    public function getCodes(int $place_id, array $params = [])
+    {
+        return $this->get("api/places/{$place_id}/codes", $params);
+    }
+
     // Positions
 
     public function getPositionRate(int $spur_team_id)
@@ -480,6 +485,11 @@ class SpurClient extends SpurClientBase
         return $this->put("gigs/{$gig_id}/shifts", $params);
     }
 
+    public function updateShiftCodes(int $shift_id, array $params)
+    {
+        return $this->put("shifts/{$shift_id}/codes", $params);
+    }
+
     // Shifts
 
     public function getShift(int $shift_id)
@@ -564,12 +574,7 @@ class SpurClient extends SpurClientBase
         return $this->delete("teams/{$team_id}/workers/{$worker_id}");
     }
 
-    public function getCodes(int $place_id, array $params = [])
-    {
-        return $this->get("api/places/{$place_id}/codes", $params);
-    }
-
-    public function updateCodes(int $worker_id, array $params)
+    public function updateWorkerCodes(int $worker_id, array $params)
     {
         return $this->put("workers/{$worker_id}/codes", $params);
     }
