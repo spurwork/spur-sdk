@@ -19,7 +19,7 @@ abstract class SpurClientBase
         $optional_string = str_replace("https://", "", $optional_string);
         $this->optional = strpos($optional_string, '/') === false
             ? ""
-            : substr($optional_string, strpos($optional_string, '/')) + "/";
+            : substr($optional_string, strpos($optional_string, '/'))."/";
         $this->authToken = $authToken;
         $this->timeOffset = $timeOffset;
     }
@@ -62,7 +62,7 @@ abstract class SpurClientBase
     public function send($method, $url, $options)
     {
         try {
-            return json_decode($this->getClient()->request($method, $this->optional + $url, $options)->getBody()->getContents(), true);
+            return json_decode($this->getClient()->request($method, $this->optional.$url, $options)->getBody()->getContents(), true);
         } catch (ClientException $e) {
             if ($e->getResponse()->getStatusCode() === 422) {
                 $data = json_decode($e->getResponse()->getBody(), true);
