@@ -611,6 +611,16 @@ class SpurClient extends SpurClientBase
         return $this->get("api/locations/{$location_id}/limited_employees/{$employee_id}");
     }
 
+    public function updateLocationManagerCodes(
+        int $place_id,
+        int $location_id,
+        int $api_location_manager_id,
+        array $params
+    )
+    {
+        return $this->put("{$place_id}/locations/{$location_id}/managers/{$api_location_manager_id}/codes", $params);
+    }
+
     // Importers
 
     public function viewImportTask(string $import_task_id)
