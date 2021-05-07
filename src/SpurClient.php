@@ -612,13 +612,12 @@ class SpurClient extends SpurClientBase
     }
 
     public function updateLocationManagerCodes(
-        int $place_id,
         int $location_id,
-        int $api_location_manager_id,
+        int $user_id,
         array $params
     )
     {
-        return $this->put("{$place_id}/locations/{$location_id}/managers/{$api_location_manager_id}/codes", $params);
+        return $this->put("locations/{$location_id}/managers/{$user_id}/codes", $params);
     }
 
     // Importers
