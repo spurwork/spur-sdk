@@ -28,6 +28,11 @@ class SpurClient extends SpurClientBase
         return $this->post('auth/login', ['user_id' => $user_id]);
     }
 
+    public function impersonateUser($user_id)
+    {
+        return $this->post('auth/impersonate', ['user_id' => $user_id]);
+    }
+
     public function registerSuperUserWithApi(array $params)
     {
         return $this->post('auth/register-super', $params);
@@ -615,8 +620,7 @@ class SpurClient extends SpurClientBase
         int $location_id,
         int $user_id,
         array $params
-    )
-    {
+    ) {
         return $this->put("locations/{$location_id}/managers/{$user_id}/codes", $params);
     }
 
