@@ -121,6 +121,16 @@ class SpurClient extends SpurClientBase
         return $this->put("teams/{$team_id}", $params);
     }
 
+    public function createNonStaffedTeam(int $place_id, array $params)
+    {
+        return $this->post("places/{$place_id}/non-staffed-teams", $params);
+    }
+
+    public function updateNonStaffedTeam(int $team_id, array $params)
+    {
+        return $this->put("non-staffed-teams/{$team_id}", $params);
+    }
+
     // Jobs
 
     // @deprecated //
