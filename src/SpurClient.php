@@ -656,7 +656,7 @@ class SpurClient extends SpurClientBase
     // Restricted Dates
     public function teamRestrictions(int $location_id, int $team_id, array $params)
     {
-        return $this->put("restrictions/{$location_id}/teams/{$team_id}", $params);
+        return $this->get("restrictions/{$location_id}/teams/{$team_id}", $params);
     }
 
 }
