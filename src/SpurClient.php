@@ -652,4 +652,11 @@ class SpurClient extends SpurClientBase
     {
         return $this->put("invoices/{$invoice_id}/intacct_total", $params);
     }
+
+    // Restricted Dates
+    public function teamRestrictions(int $location_id, int $team_id, array $params)
+    {
+        return $this->put("restrictions/{$location_id}/teams/{$team_id}", $params);
+    }
+
 }
