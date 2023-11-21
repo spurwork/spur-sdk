@@ -557,6 +557,11 @@ class SpurClient extends SpurClientBase
         return $this->post('shifts/workplace/bulk-tips', $params);
     }
 
+    public function createShiftRequest(int $place_id, array $params)
+    {
+        return $this->post("api/places/$place_id/shift-requests", $params);
+    }
+
     // Workers
 
     public function getBlockedWorkers(int $place_id, array $params)
